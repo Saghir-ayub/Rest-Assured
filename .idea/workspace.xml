@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a34dbe42-266a-4383-bfe2-bcadad6f5c80" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/GetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GetRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ShoppingSiteGetRequests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StarWarsTemplate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +42,10 @@
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="GetRequest.getRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StarWarsTemplate.getRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RestAssured" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GetRequest" />
+      <option name="MAIN_CLASS_NAME" value="StarWarsTemplate" />
       <option name="METHOD_NAME" value="getRequest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -52,7 +54,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GetRequest.getRequest" />
+        <item itemvalue="JUnit.StarWarsTemplate.getRequest" />
       </list>
     </recent_temporary>
   </component>
@@ -66,20 +68,5 @@
       <updated>1670932520123</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/GetRequest.java</url>
-          <line>12</line>
-          <properties class="GetRequest" method="getRequest">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
