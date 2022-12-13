@@ -6,8 +6,9 @@ import org.junit.Test;
 import static io.restassured.RestAssured.when;
 
 public class GetRequest {
+    private static final String BASE_URL = "https://swapi.dev/api";
     @Test
     public void getRequest(){
-        when().get("https://swapi.dev/api/people/1").then().statusCode(200);
+        when().get(BASE_URL+"/people/1").then().statusCode(200);
     }
 }
