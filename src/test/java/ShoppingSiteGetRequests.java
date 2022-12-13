@@ -1,4 +1,5 @@
 import io.restassured.RestAssured;
+import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
@@ -19,8 +20,8 @@ public class ShoppingSiteGetRequests {
 
     @Test
     public void viewMyAccountNotLoggedIn(){
-        String htmlContent = when().
-                get(BASE_URL+"?controller=my-account").htmlPath().getString("html.body");
-        Assert.assertTrue("Log in to your account not present",htmlContent.contains("Log in to your account"));
+        String htmlTitle = when().
+                get(BASE_URL+"?controller=my-account").htmlPath().getString("html.head.title");
+        Assert.assertNotEquals("My Account",htmlTitle);
     }
 }
