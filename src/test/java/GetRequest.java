@@ -8,6 +8,6 @@ import static io.restassured.RestAssured.when;
 public class GetRequest {
     @Test
     public void getRequest(){
-        when().get("https://swapi.dev/api/people/1").then().equals(5);
+        when().get("https://swapi.dev/api/people/1").then().statusCode(200);
     }
 }
