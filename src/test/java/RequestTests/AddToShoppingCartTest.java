@@ -9,6 +9,6 @@ public class AddToShoppingCartTest {
     @Test
     public void addItemsToCart(){
         homePage.getCookies();
-        homePage.addToCart();
+        homePage.addToCart(2,1,7);
     }
 }
