@@ -14,7 +14,7 @@ abstract class BasePage {
         this.httpRequest = RestAssured.given();
     }
 
-    String getTitleOfPage() {
+    public String getTitleOfPage() {
         return response.htmlPath().getString("html.head.title");
     }
 

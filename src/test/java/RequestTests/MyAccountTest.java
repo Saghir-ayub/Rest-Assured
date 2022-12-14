@@ -72,7 +72,7 @@ public class MyAccountTest {
                 .when()
                 .post();
        // cookies = response.then().extract().detailedCookies();
-
+        Assert.assertEquals("My account", myAccount.getTitleOfPage());
        // Assert.assertEquals(200,response.statusCode());
         response.getBody().prettyPrint();
         System.out.println(response.getStatusCode());
