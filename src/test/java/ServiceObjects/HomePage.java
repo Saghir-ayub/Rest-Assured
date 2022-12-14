@@ -19,4 +19,9 @@ public class HomePage extends BasePage {
     public void titleOfPage(String title) {
         Assert.assertEquals(title, getTitleOfPage());
     }
+
+    public void checkSearch(String searchTerm) {
+        response = httpRequest.queryParam("controller", "search").queryParam("s", searchTerm).when().get();
+        response.then().assertThat().statusCode(200);
+    }
 }
