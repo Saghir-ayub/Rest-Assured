@@ -12,4 +12,9 @@ public class HomePageTest {
         homePage.statusCodeOfPage(200);
         homePage.titleOfPage("Ten10 Store");
     }
+
+    @Test
+    public void searchIsWorking() {
+        homePage.checkSearch("top");
+    }
 }
