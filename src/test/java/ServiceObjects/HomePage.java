@@ -33,8 +33,6 @@ public class HomePage extends BasePage {
                 .multiPart("add", "1")
                 .when()
                 .post();
-        System.out.println(response.getBody().prettyPrint());
-        System.out.println(response.getStatusCode());
     }
 
     public void statusCodeOfPage(int statusCode) {
