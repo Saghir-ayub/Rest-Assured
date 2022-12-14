@@ -21,7 +21,7 @@ public class HomePage extends BasePage {
     }
 
     public void addToCart(){
-        Response response = httpRequest
+        response = httpRequest
                 .cookies(cookies)
                 .queryParam("controller", "cart")
                 .contentType("multipart/form-data")
