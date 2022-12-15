@@ -24,8 +24,8 @@ abstract class BasePage {
         return response.statusCode();
     }
 
-    public String getCookiesFilter() {
-         RestAssured.given().filter(cookieFilter);
-        return null;
+    public void getCookiesFilter() {
+         httpRequest.filter(cookieFilter);
+
     }
 }
