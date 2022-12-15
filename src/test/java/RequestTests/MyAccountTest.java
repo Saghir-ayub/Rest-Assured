@@ -35,7 +35,7 @@ public class MyAccountTest {
     }
 
     @Test
-    @Tag("AUT 13")
+    @Tag("AUT-13")
     public void userLogin() {
         homePage.login("test@123.com", "test123");
 
