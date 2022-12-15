@@ -62,8 +62,8 @@ public class HomePage extends BasePage {
                 .redirects().follow(true)
                 .multiPart("token", "8b3ee4f1cba54a1031be9bb7879e9dad")
                 .multiPart("back", "my-account")
-                .multiPart("email", "test@123.com")
-                .multiPart("password", "test123")
+                .multiPart("email", userName)
+                .multiPart("password", password)
                 .multiPart("submitLogin", "1")
                 .when()
                 .post();
