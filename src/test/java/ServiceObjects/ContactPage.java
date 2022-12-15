@@ -1,6 +1,6 @@
 package ServiceObjects;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 public class ContactPage extends BasePage {
 
@@ -15,10 +15,10 @@ public class ContactPage extends BasePage {
     }
 
     public void statusCodeOfPage(int statusCode) {
-        Assert.assertEquals(statusCode, getStatusCodeOfPage());
+        Assertions.assertEquals(statusCode, getStatusCodeOfPage());
     }
 
     public void titleOfPage(String title) {
-        Assert.assertEquals(title, getTitleOfPage());
+        Assertions.assertEquals(title, getTitleOfPage());
     }
 }
