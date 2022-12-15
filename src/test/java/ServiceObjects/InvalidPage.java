@@ -20,6 +20,10 @@ public class InvalidPage extends BasePage {
         Assertions.assertEquals(statusCode, getStatusCodeOfPage());
     }
 
+    public void titleOfPage(String title) {
+        Assertions.assertEquals(title, getTitleOfPage());
+    }
+
     public void goToRedirectedHomepage() {
         response = httpRequest.redirects().follow(false).get(INVALID_ENDPOINT);
     }
