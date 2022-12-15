@@ -2,10 +2,7 @@ package ServiceObjects;
 
 import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
-import io.restassured.path.xml.XmlPath;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 public class HomePage extends BasePage {
 
@@ -36,21 +33,21 @@ public class HomePage extends BasePage {
                 .multiPart("add", "1")
                 .when()
                 .post();
-        // Assert.assertEquals("("+quantity+")",xmlParseByAttribute("class","cart-products-count"));
+        Assertions.assertEquals("("+quantity+")",xmlParseByAttribute("class","cart-products-count"));
     }
 
     public void statusCodeOfPage(int statusCode) {
-        Assert.assertEquals(statusCode, getStatusCodeOfPage());
+        Assertions.assertEquals(statusCode, getStatusCodeOfPage());
     }
 
     public void titleOfPage(String title) {
-        Assert.assertEquals(title, getTitleOfPage());
+        Assertions.assertEquals(title, getTitleOfPage());
     }
 
     public void checkSearch(String searchTerm) {
         response = httpRequest.queryParam("controller", "search").queryParam("s", searchTerm).when().get();
         response.then().assertThat().statusCode(200);
-        //   Assert.assertEquals("Search results",xmlParseByAttribute("class","h2"));
+        Assertions.assertEquals("Search results",xmlParseByAttribute("class","h2"));
     }
 
     public void login(String userName, String password) {

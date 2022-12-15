@@ -2,6 +2,8 @@ package RequestTests;
 
 import ServiceObjects.HomePage;
 import ServiceObjects.MyAccount;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Tag;
 import io.restassured.RestAssured;
 import io.restassured.filter.cookie.CookieFilter;
 import io.restassured.filter.session.SessionFilter;
@@ -9,9 +11,6 @@ import io.restassured.http.ContentType;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.junit.Assert;
-import org.junit.Test;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,6 +26,7 @@ public class MyAccountTest {
     HomePage homePage= new HomePage();
     private static String Account_page = "http://3.11.77.136/index.php?controller=authentication&back=my-account";
     @Test
+    @Tag("AUT-5")
     public void guestCantViewMyAccount() {
         myAccount.goToMyAccountPage();
         myAccount.titleOfPage("Login");
