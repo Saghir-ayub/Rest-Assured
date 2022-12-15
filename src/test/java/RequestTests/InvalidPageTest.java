@@ -15,4 +15,10 @@ public class InvalidPageTest {
         invalidPage.statusCodeOfPage(404);
         invalidPage.titleOfPage("404 error");
     }
+    @Test
+    @Tag("AUT-17")
+    public void checkRedirectToHomepage() {
+        invalidPage.goToRedirectedHomepage();
+        invalidPage.statusCodeOfPage(302);
+    }
 }
