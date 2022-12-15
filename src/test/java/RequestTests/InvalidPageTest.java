@@ -13,5 +13,6 @@ public class InvalidPageTest {
     public void checkInvalid() {
         invalidPage.goToInvalidPage();
         invalidPage.statusCodeOfPage(404);
+        invalidPage.titleOfPage("404 error");
     }
 }

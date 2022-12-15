@@ -17,4 +17,8 @@ public class InvalidPage extends BasePage {
     public void statusCodeOfPage(int statusCode) {
         Assertions.assertEquals(statusCode, getStatusCodeOfPage());
     }
+
+    public void titleOfPage(String title) {
+        Assertions.assertEquals(title, getTitleOfPage());
+    }
 }
