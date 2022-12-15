@@ -4,19 +4,8 @@ import ServiceObjects.HomePage;
 import ServiceObjects.MyAccount;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
-import io.restassured.RestAssured;
-import io.restassured.filter.cookie.CookieFilter;
-import io.restassured.filter.session.SessionFilter;
-import io.restassured.http.ContentType;
-import io.restassured.http.Cookies;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.head;
 
 public class MyAccountTest {
     MyAccount myAccount = new MyAccount();

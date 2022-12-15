@@ -2,6 +2,7 @@ package ServiceObjects;
 
 import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
+import io.restassured.internal.common.assertion.Assertion;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 
@@ -34,7 +35,7 @@ public class HomePage extends BasePage {
                 .multiPart("add", "1")
                 .when()
                 .post();
-        Assertions.assertEquals("("+quantity+")",xmlParseByAttribute("class","cart-products-count"));
+        Assertions.assertEquals("(" + quantity + ")", xmlParseByAttribute("class", "cart-products-count"));
     }
 
     public void statusCodeOfPage(int statusCode) {
@@ -48,14 +49,11 @@ public class HomePage extends BasePage {
     public void checkSearch(String searchTerm) {
         response = httpRequest.queryParam("controller", "search").queryParam("s", searchTerm).when().get();
         response.then().assertThat().statusCode(200);
-        Assertions.assertEquals("Search results",xmlParseByAttribute("class","h2"));
+        Assertions.assertEquals("Search results", xmlParseByAttribute("class", "h2"));
     }
 
     public void login(String userName, String password) {
-
-
         getCookiesFilter();
-
         Response response = httpRequest
                 .contentType("multipart/form-data")
                 .queryParam("controller", "authentication")
@@ -69,12 +67,13 @@ public class HomePage extends BasePage {
                 .multiPart("submitLogin", "1")
                 .when()
                 .post();
-
         response.getBody().prettyPrint();
+        response = httpRequest.get().andReturn();
         System.out.println(response.getStatusCode());
         Response response1 = httpRequest.get().andReturn();
         response1.getBody().prettyPrint();
-        System.out.println();
+        Assertions.assertEquals("My account", response1.htmlPath().getString("html.head.title"));
+
 
 
     }

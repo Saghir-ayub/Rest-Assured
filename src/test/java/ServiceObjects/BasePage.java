@@ -25,13 +25,14 @@ abstract class BasePage {
     int getStatusCodeOfPage() {
         return response.statusCode();
     }
+
     String xmlParseByAttribute(String attribute, String attributeValue) {
         xmlPath = new XmlPath(response.getBody().asPrettyString());
-        return xmlPath.get("**.find {it.@"+attribute+" == '"+attributeValue+"'}");
+        return xmlPath.get("**.find {it.@" + attribute + " == '" + attributeValue + "'}");
     }
 
     public void getCookiesFilter() {
-         httpRequest.filter(cookieFilter);
+        httpRequest.filter(cookieFilter);
 
     }
 }
