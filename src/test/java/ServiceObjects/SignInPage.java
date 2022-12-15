@@ -3,6 +3,7 @@ package ServiceObjects;
 import org.junit.jupiter.api.Assertions;
 
 public class SignInPage extends BasePage{
+    private static final String EXTENSION = "?controller=my-account";
     public void login(String userName, String password) {
         getCookiesFilter();
         response = httpRequest
@@ -21,7 +22,7 @@ public class SignInPage extends BasePage{
     }
 
     public void checkIfLoggedIn(){
-        response = httpRequest.get().andReturn();
+        response = httpRequest.get(EXTENSION).andReturn();
         Assertions.assertEquals("My account", getTitleOfPage());
     }
 }
