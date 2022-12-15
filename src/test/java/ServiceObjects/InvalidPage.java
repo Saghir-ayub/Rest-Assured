@@ -6,6 +6,8 @@ public class InvalidPage extends BasePage {
 
     private static final String EXTENSION = "?controller=basket";
 
+    private static final String INVALID_ENDPOINT = "controller=basket";
+
     public InvalidPage() {
         super();
     }
@@ -21,4 +23,9 @@ public class InvalidPage extends BasePage {
     public void titleOfPage(String title) {
         Assertions.assertEquals(title, getTitleOfPage());
     }
+
+    public void goToRedirectedHomepage() {
+        response = httpRequest.redirects().follow(false).get(INVALID_ENDPOINT);
+    }
+
 }
