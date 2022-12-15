@@ -1,6 +1,6 @@
 package ServiceObjects;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 public class MyAccount extends BasePage {
     private static final String EXTENSION = "?controller=my-account";
@@ -14,6 +14,6 @@ public class MyAccount extends BasePage {
     }
 
     public void titleOfPage(String title) {
-        Assert.assertEquals(title, getTitleOfPage());
+        Assertions.assertEquals(title, getTitleOfPage());
     }
 }
