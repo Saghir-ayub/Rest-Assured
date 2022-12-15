@@ -14,4 +14,10 @@ public class InvalidPageTest {
         invalidPage.goToInvalidPage();
         invalidPage.statusCodeOfPage(404);
     }
+    @Test
+    @Tag("AUT-17")
+    public void checkRedirectToHomepage() {
+        invalidPage.goToRedirectedHomepage();
+        invalidPage.statusCodeOfPage(302);
+    }
 }
