@@ -53,9 +53,10 @@ public class MyAccountTest {
         RestAssured.baseURI = "http://3.11.77.136/index.php";
         CookieFilter cookieFilter = new CookieFilter();
         RequestSpecification request = RestAssured.given().filter(cookieFilter);
+        myAccount.getCookiesFilter();
 
         Response response = request
-                .filter(cookieFilter)
+                /*.filter(cookieFilter)*/
              //   .header("Cookie",cookies.toString())
                 //.accept(ContentType.HTML.getAcceptHeader())
                 //.contentType("application/x-www-form-urlencoded")
@@ -72,13 +73,13 @@ public class MyAccountTest {
                 .when()
                 .post();
        // cookies = response.then().extract().detailedCookies();
-        Assert.assertEquals("My account", myAccount.getTitleOfPage());
+       // Assert.assertEquals("Sign out", myAccount.getTitleOfPage());
        // Assert.assertEquals(200,response.statusCode());
         response.getBody().prettyPrint();
         System.out.println(response.getStatusCode());
-        Response response1 = request.filter(cookieFilter).get();
+        Response response1 = request.get().andReturn();
        response1.getBody().prettyPrint();
-        System.out.println(cookieFilter);
+        System.out.println(myAccount.getCookiesFilter());
 
 
 
