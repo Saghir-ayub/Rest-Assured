@@ -2,6 +2,7 @@ package RequestTests;
 
 import ServiceObjects.HomePage;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class HomePageTest {
     HomePage homePage = new HomePage();

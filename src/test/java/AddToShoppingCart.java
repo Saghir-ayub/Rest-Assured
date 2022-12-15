@@ -52,7 +52,9 @@ public class AddToShoppingCart {
                 .multiPart("id_product_attribute", "1")
                 .when()
                 .post();
-        System.out.println(response.getBody().prettyPrint());
-        System.out.println(response.getStatusCode());
+        XmlPath xmlPath = new XmlPath(response.getBody().asPrettyString());
+        String title = xmlPath.get("**.find {it.@class == 'cart-products-count'}");
+        Assert.assertEquals("(0)",title);
+        System.out.println(response.body().prettyPrint());
     }
 }

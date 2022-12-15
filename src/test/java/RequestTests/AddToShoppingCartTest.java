@@ -10,5 +10,6 @@ public class AddToShoppingCartTest {
     public void addItemsToCart(){
         homePage.getCookies();
         homePage.addToCart(2,1,7);
+        homePage.deleteFromCart(2,7);
     }
 }

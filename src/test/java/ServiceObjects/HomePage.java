@@ -38,6 +38,21 @@ public class HomePage extends BasePage {
         Assert.assertEquals("("+quantity+")",xmlPath.get("**.find {it.@class == 'cart-products-count'}"));
     }
 
+    public void deleteFromCart(int productID, int productAttrID){
+        response = httpRequest
+                .cookies(cookies)
+                .queryParam("controller","cart")
+                .queryParam("action","show")
+                .multiPart("token","8b3ee4f1cba54a1031be9bb7879e9dad")
+                .multiPart("action", "delete-from-cart")
+                .multiPart("id_product", productID)
+                .multiPart("id_product_attribute", productAttrID)
+                .when()
+                .post();
+        XmlPath xmlPath = new XmlPath(response.getBody().asPrettyString());
+        Assert.assertEquals("(0)",xmlPath.get("**.find {it.@class == 'cart-products-count'}"));
+    }
+
     public void statusCodeOfPage(int statusCode) {
         Assert.assertEquals(statusCode, getStatusCodeOfPage());
     }
