@@ -3,12 +3,14 @@ package ServiceObjects;
 
 import io.restassured.RestAssured;
 import io.restassured.filter.cookie.CookieFilter;
+import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 abstract class BasePage {
     protected RequestSpecification httpRequest;
     protected Response response;
+    protected XmlPath xmlPath;
     CookieFilter cookieFilter = new CookieFilter();
 
     BasePage() {
@@ -22,6 +24,10 @@ abstract class BasePage {
 
     int getStatusCodeOfPage() {
         return response.statusCode();
+    }
+    String xmlParseByAttribute(String attribute, String attributeValue) {
+        xmlPath = new XmlPath(response.getBody().asPrettyString());
+        return xmlPath.get("**.find {it.@"+attribute+" == '"+attributeValue+"'}");
     }
 
     public void getCookiesFilter() {
