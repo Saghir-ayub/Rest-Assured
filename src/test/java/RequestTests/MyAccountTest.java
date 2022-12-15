@@ -47,6 +47,7 @@ public class MyAccountTest {
         given().when().get(Account_page).then().assertThat().statusCode(200);
     }
     @Test
+    @Tag("AUT 13")
     public void userLogin(){
         homePage.login("test@123.com","test123");
 
