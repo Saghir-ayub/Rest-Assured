@@ -34,8 +34,7 @@ public class HomePage extends BasePage {
                 .multiPart("add", "1")
                 .when()
                 .post();
-        XmlPath xmlPath = new XmlPath(response.getBody().asPrettyString());
-        Assert.assertEquals("("+quantity+")",xmlPath.get("**.find {it.@class == 'cart-products-count'}"));
+        Assert.assertEquals("("+quantity+")",xmlParseByAttribute("class","cart-products-count"));
     }
 
     public void deleteFromCart(int productID, int productAttrID){
@@ -59,5 +58,11 @@ public class HomePage extends BasePage {
 
     public void titleOfPage(String title) {
         Assert.assertEquals(title, getTitleOfPage());
+    }
+
+    public void checkSearch(String searchTerm) {
+        response = httpRequest.queryParam("controller", "search").queryParam("s", searchTerm).when().get();
+        response.then().assertThat().statusCode(200);
+        Assert.assertEquals("Search results",xmlParseByAttribute("class","h2"));
     }
 }
