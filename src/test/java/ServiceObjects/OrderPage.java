@@ -3,6 +3,14 @@ package ServiceObjects;
 import org.junit.jupiter.api.Assertions;
 
 public class OrderPage extends BasePage {
+    public void pageCheck(){
+        response = httpRequest
+                .filter(cookieFilter)
+                .queryParam("controller", "order")
+                .when()
+                .get();
+        System.out.println(response.getBody().prettyPrint());
+    }
 
     public void fillInPersonalInformation(String firstName, String lastName, String email) {
         response = httpRequest
@@ -10,7 +18,7 @@ public class OrderPage extends BasePage {
                 .queryParam("controller", "order")
                 .contentType("multipart/form-data")
                 .multiPart("token", "8b3ee4f1cba54a1031be9bb7879e9dad")
-//                .multiPart("id_customer","")
+                .multiPart("id_customer","")
                 .multiPart("id_gender","1")
                 .multiPart("firstname",firstName)
                 .multiPart("lastname",lastName)
@@ -21,6 +29,7 @@ public class OrderPage extends BasePage {
                 .when()
                 .post();
         System.out.println(response.getStatusCode());
+        pageCheck();
     }
 
     public void fillInAddress(String firstName, String lastName, String address, String city, String zipCode) {
@@ -29,8 +38,8 @@ public class OrderPage extends BasePage {
                 .queryParam("controller", "order")
                 .contentType("multipart/form-data")
                 .multiPart("token", "8b3ee4f1cba54a1031be9bb7879e9dad")
-//                .multiPart("id_address","")
-//                .multiPart("id_customer","")
+                .multiPart("id_address","")
+                .multiPart("id_customer","")
                 .multiPart("firstname",firstName)
                 .multiPart("lastname",lastName)
                 .multiPart("address",address)
@@ -47,6 +56,7 @@ public class OrderPage extends BasePage {
                 .when()
                 .post();
         System.out.println(response.getStatusCode());
+        pageCheck();
     }
 
     public void confirmShippingMethod(String deliveryMessage) {
@@ -62,6 +72,7 @@ public class OrderPage extends BasePage {
                 .when()
                 .post();
         System.out.println(response.getStatusCode());
+        pageCheck();
     }
 
     public void orderValidation() {
@@ -76,6 +87,7 @@ public class OrderPage extends BasePage {
                 .when()
                 .post();
         System.out.println(response.getStatusCode());
+        pageCheck();
     }
 
     public void orderConfirmation() {

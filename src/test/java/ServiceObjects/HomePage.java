@@ -19,6 +19,10 @@ public class HomePage extends BasePage {
         cookies = httpRequest.get("").then().extract().detailedCookies();
     }
 
+    public void deleteCookies(){
+        cookies = null;
+    }
+
     public void addToCart(int productID, int quantity, int productAttrID) {
         response = httpRequest
                 .cookies(cookies)
