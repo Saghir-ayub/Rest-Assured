@@ -33,6 +33,5 @@ abstract class BasePage {
 
     public void getCookiesFilter() {
         httpRequest.filter(cookieFilter);
-
     }
 }
