@@ -1,16 +1,16 @@
 package RequestTests;
 
-import ServiceObjects.HomePage;
 import ServiceObjects.MyAccount;
-import org.junit.jupiter.api.Test;
+import ServiceObjects.SignInPage;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 
 public class MyAccountTest {
     MyAccount myAccount = new MyAccount();
-    HomePage homePage = new HomePage();
-    private static String Account_page = "http://3.11.77.136/index.php?controller=authentication&back=my-account";
+    SignInPage signInPage = new SignInPage();
+    private static final String Account_page = "http://3.11.77.136/index.php?controller=authentication&back=my-account";
 
     @Test
     @Tag("AUT-5")
@@ -35,12 +35,9 @@ public class MyAccountTest {
     }
 
     @Test
-    @Tag("AUT 13")
+    @Tag("AUT-13")
     public void userLogin() {
-        homePage.login("test@123.com", "test123");
-
-
+        signInPage.login("test@123.com", "test123");
+        signInPage.checkIfLoggedIn();
     }
-
-
 }
